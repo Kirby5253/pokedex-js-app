@@ -3,27 +3,36 @@ var pokemonList = [];
 
 //Establish first three entries in Pokedex array
 pokemonList[0] = {
-	name: 'Bulbasaur',
+	pokemonName: 'Bulbasaur',
 	heightMeters: 0.7,
-	type: 'grass, poison',
+	pokemonType: [ 'grass', 'poison' ],
 	weightKg: 6.9,
 	evolvesInto: 'Ivysaur'
 };
 
 pokemonList[1] = {
-	name: 'Charmander',
-	height: 0.6,
-	type: 'fire',
+	pokemonName: 'Charizard',
+	heightMeters: 1.7,
+	pokemonType: [ 'fire' ],
 	weightKg: 8.5,
-	evolvesInto: 'Charmeleon'
+	evolvesInto: 'none'
 };
 
 pokemonList[2] = {
-	name: 'Squirtle',
-	height: 0.5,
-	type: 'water',
+	pokemonName: 'Squirtle',
+	heightMeters: 0.5,
+	pokemonType: [ 'water' ],
 	weightKg: 9,
 	evolvesInto: 'Wartortle'
 };
 
-console.log(pokemonList);
+// Create a loop to list out the pokemon in order, and
+for (var i = 0; i < 3; i++) {
+	if (pokemonList[i].heightMeters > 1) {
+		document.write(
+			'<p>' + pokemonList[i].pokemonName + ' (' + pokemonList[i].heightMeters + " meters) - Wow, that's big!</p>"
+		);
+	} else {
+		document.write('<p>' + pokemonList[i].pokemonName + ' (' + pokemonList[i].heightMeters + ' meters)</p>');
+	}
+}
