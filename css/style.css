@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	background-color: rgba(226, 226, 226, 0.856);
+	max-width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+.big-boys {
+	font-weight: 700;
+}
