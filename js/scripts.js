@@ -30,7 +30,11 @@ pokemonList[2] = {
 for (var i = 0; i < 3; i++) {
 	if (pokemonList[i].heightMeters > 1) {
 		document.write(
-			'<p>' + pokemonList[i].pokemonName + ' (' + pokemonList[i].heightMeters + " meters) - Wow, that's big!</p>"
+			'<p>' +
+				pokemonList[i].pokemonName +
+				' (' +
+				pokemonList[i].heightMeters +
+				" meters) - <span class='big-boys'>Wow, that's big!</span></p>"
 		);
 	} else {
 		document.write('<p>' + pokemonList[i].pokemonName + ' (' + pokemonList[i].heightMeters + ' meters)</p>');
