@@ -1,5 +1,7 @@
+// Create initial empty array for Pokedex app
 var pokemonList = [];
 
+//Establish first three entries in Pokedex array
 pokemonList[0] = {
 	name: 'Bulbasaur',
 	heightMeters: 0.7,
