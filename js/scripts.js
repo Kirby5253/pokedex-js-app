@@ -1,16 +1,15 @@
-
-var pokemonRepository = (function () {
+var pokemonRepository = (function() {
 	// Create initial empty array for Pokedex app
 	var pokemonList = [];
 
 	// Create function to add new pokemon
 	function add(pokemon) {
-		pokemonList.push(pokemon)
+		pokemonList.push(pokemon);
 	}
 
 	// Create function to list current pokemon
 	function getAll() {
-		return pokemonList
+		return pokemonList;
 	}
 
 	return {
@@ -21,12 +20,8 @@ var pokemonRepository = (function () {
 
 pokemonRepository.getAll();
 
-
-
-
-
 //Establish first three entries in Pokedex array
-pokemonRepository.add( {
+pokemonRepository.add({
 	pokemonName: 'Bulbasaur',
 	heightMeters: 0.7,
 	pokemonType: [ 'grass', 'poison' ],
@@ -34,7 +29,7 @@ pokemonRepository.add( {
 	evolvesInto: 'Ivysaur'
 });
 
-pokemonRepository.add( {
+pokemonRepository.add({
 	pokemonName: 'Charizard',
 	heightMeters: 1.7,
 	pokemonType: [ 'fire' ],
@@ -42,7 +37,7 @@ pokemonRepository.add( {
 	evolvesInto: 'none'
 });
 
-pokemonRepository.add(  {
+pokemonRepository.add({
 	pokemonName: 'Squirtle',
 	heightMeters: 0.5,
 	pokemonType: [ 'water' ],
@@ -66,19 +61,21 @@ function printPokemonList(pokemon) {
 	}
 }
 
-pokemonRepository.pokemonList(forEach(printPokemonList));
+pokemonRepository.getAll().forEach(printPokemonList);
 
-// Create a function within the forEach
-pokemonRepository.forEach(function(pokemon2) {
-	if (pokemon2.heightMeters > 1) {
+function printPokemonList(pokemon) {
+	// Create a loop to list out the pokemon in order
+	if (pokemon.heightMeters > 1) {
 		document.write(
 			'<p>' +
-				pokemon2.pokemonName +
+				pokemon.pokemonName +
 				' (' +
-				pokemon2.heightMeters +
+				pokemon.heightMeters +
 				" meters) - <span class='big-boys'>Wow, that's big!</span></p>"
 		);
 	} else {
-		document.write('<p>' + pokemon2.pokemonName + ' (' + pokemon2.heightMeters + ' meters)</p>');
+		document.write('<p>' + pokemon.pokemonName + ' (' + pokemon.heightMeters + ' meters)</p>');
 	}
-});
+}
+
+pokemonRepository.getAll().forEach(printPokemonList);
