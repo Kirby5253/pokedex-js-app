@@ -26,7 +26,7 @@ pokemonList[2] = {
 	evolvesInto: 'Wartortle'
 };
 
-// Create a loop to list out the pokemon in order, and
+// Create a loop to list out the pokemon in order
 for (var i = 0; i < pokemonList.length; i++) {
 	if (pokemonList[i].heightMeters > 1) {
 		document.write(
