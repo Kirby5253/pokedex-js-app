@@ -1,30 +1,54 @@
-// Create initial empty array for Pokedex app
-var pokemonList = [];
+
+var pokemonRepository = (function () {
+	// Create initial empty array for Pokedex app
+	var pokemonList = [];
+
+	// Create function to add new pokemon
+	function add(pokemon) {
+		pokemonList.push(pokemon)
+	}
+
+	// Create function to list current pokemon
+	function getAll() {
+		return pokemonList
+	}
+
+	return {
+		add: add,
+		getAll: getAll
+	};
+})();
+
+pokemonRepository.getAll();
+
+
+
+
 
 //Establish first three entries in Pokedex array
-pokemonList[0] = {
+pokemonRepository.add( {
 	pokemonName: 'Bulbasaur',
 	heightMeters: 0.7,
 	pokemonType: [ 'grass', 'poison' ],
 	weightKg: 6.9,
 	evolvesInto: 'Ivysaur'
-};
+});
 
-pokemonList[1] = {
+pokemonRepository.add( {
 	pokemonName: 'Charizard',
 	heightMeters: 1.7,
 	pokemonType: [ 'fire' ],
 	weightKg: 8.5,
 	evolvesInto: 'none'
-};
+});
 
-pokemonList[2] = {
+pokemonRepository.add(  {
 	pokemonName: 'Squirtle',
 	heightMeters: 0.5,
 	pokemonType: [ 'water' ],
 	weightKg: 9,
 	evolvesInto: 'Wartortle'
-};
+});
 
 //Create function then run the forEach declaration after
 function printPokemonList(pokemon) {
@@ -42,10 +66,10 @@ function printPokemonList(pokemon) {
 	}
 }
 
-pokemonList.forEach(printPokemonList);
+pokemonRepository.pokemonList(forEach(printPokemonList));
 
 // Create a function within the forEach
-pokemonList.forEach(function(pokemon2) {
+pokemonRepository.forEach(function(pokemon2) {
 	if (pokemon2.heightMeters > 1) {
 		document.write(
 			'<p>' +
