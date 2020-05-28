@@ -81,20 +81,3 @@ function printPokemonList(pokemon) {
 }
 
 pokemonRepository.getAll().forEach(printPokemonList);
-
-// function printPokemonList(pokemon) {
-// 	// Create a loop to list out the pokemon in order
-// 	if (pokemon.heightMeters > 1) {
-// 		document.write(
-// 			'<p>' +
-// 				pokemon.pokemonName +
-// 				' (' +
-// 				pokemon.heightMeters +
-// 				" meters) - <span class='big-boys'>Wow, that's big!</span></p>"
-// 		);
-// 	} else {
-// 		document.write('<p>' + pokemon.pokemonName + ' (' + pokemon.heightMeters + ' meters)</p>');
-// 	}
-// }
-
-// pokemonRepository.getAll().forEach(printPokemonList);
