@@ -27,7 +27,7 @@ pokemonList[2] = {
 };
 
 // Create a loop to list out the pokemon in order, and
-for (var i = 0; i < 3; i++) {
+for (var i = 0; i < pokemonList.length; i++) {
 	if (pokemonList[i].heightMeters > 1) {
 		document.write(
 			'<p>' +
