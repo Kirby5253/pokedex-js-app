@@ -26,17 +26,35 @@ pokemonList[2] = {
 	evolvesInto: 'Wartortle'
 };
 
-// Create a loop to list out the pokemon in order
-for (var i = 0; i < pokemonList.length; i++) {
-	if (pokemonList[i].heightMeters > 1) {
+//Create function then run the forEach declaration after
+function printPokemonList(pokemon) {
+	// Create a loop to list out the pokemon in order
+	if (pokemon.heightMeters > 1) {
 		document.write(
 			'<p>' +
-				pokemonList[i].pokemonName +
+				pokemon.pokemonName +
 				' (' +
-				pokemonList[i].heightMeters +
+				pokemon.heightMeters +
 				" meters) - <span class='big-boys'>Wow, that's big!</span></p>"
 		);
 	} else {
-		document.write('<p>' + pokemonList[i].pokemonName + ' (' + pokemonList[i].heightMeters + ' meters)</p>');
+		document.write('<p>' + pokemon.pokemonName + ' (' + pokemon.heightMeters + ' meters)</p>');
 	}
 }
+
+pokemonList.forEach(printPokemonList);
+
+// Create a function within the forEach
+pokemonList.forEach(function(pokemon2) {
+	if (pokemon2.heightMeters > 1) {
+		document.write(
+			'<p>' +
+				pokemon2.pokemonName +
+				' (' +
+				pokemon2.heightMeters +
+				" meters) - <span class='big-boys'>Wow, that's big!</span></p>"
+		);
+	} else {
+		document.write('<p>' + pokemon2.pokemonName + ' (' + pokemon2.heightMeters + ' meters)</p>');
+	}
+});
