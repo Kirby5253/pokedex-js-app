@@ -1,3 +1,4 @@
+// IIFE
 var pokemonRepository = (function() {
 	// Create initial empty array for Pokedex app
 	var pokemonList = [];
@@ -35,12 +36,23 @@ var pokemonRepository = (function() {
 
 		// Appends the list item to the list
 		indexList.appendChild(listItem);
+
+		// Adds event to show details in console of each button
+		button.addEventListener('click', function(event) {
+			showDetails(pokemon);
+		});
+	}
+
+	// Add functionality to button click
+	function showDetails(pokemon) {
+		console.log(pokemon);
 	}
 
 	return {
 		add: add,
 		getAll: getAll,
-		addListItem: addListItem
+		addListItem: addListItem,
+		showDetails: showDetails
 	};
 })();
 
