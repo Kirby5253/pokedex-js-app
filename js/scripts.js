@@ -23,7 +23,7 @@ var pokemonRepository = (function() {
 
 pokemonRepository.getAll();
 
-//Establish first three entries in Pokedex array
+//Establish entries in Pokedex array
 pokemonRepository.add({
 	pokemonName: 'Bulbasaur',
 	heightMeters: 0.7,
@@ -65,19 +65,27 @@ pokemonRepository.add({
 });
 
 //Create function then run the forEach declaration after
-function printPokemonList(pokemon) {
-	// Create a loop to list out the pokemon in order
-	if (pokemon.heightMeters > 1) {
-		document.write(
-			'<p>' +
-				pokemon.pokemonName +
-				' (' +
-				pokemon.heightMeters +
-				" meters) - <span class='big-boys'>Wow, that's big!</span></p>"
-		);
-	} else {
-		document.write('<p>' + pokemon.pokemonName + ' (' + pokemon.heightMeters + ' meters)</p>');
-	}
+function printPokemonList(variable) {
+	// Selects the list element in index
+	var indexList = document.querySelector('.pokemon-list');
+
+	// Create an li element for each pokemon
+	var listItem = document.createElement('li');
+
+	// Create a button for each pokemon
+	var button = document.createElement('button');
+
+	// Adds pokemon names to buttons
+	button.innerText = variable.pokemonName;
+
+	//Add class to the button element
+	button.classList.add('pokemonSelectorButton');
+
+	// Appends button to the list item
+	listItem.appendChild(button);
+
+	// Appends the list item to the list
+	indexList.appendChild(listItem);
 }
 
 pokemonRepository.getAll().forEach(printPokemonList);

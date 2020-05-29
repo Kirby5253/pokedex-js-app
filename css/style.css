@@ -7,7 +7,7 @@ body {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.6;
-	background-color: rgba(226, 226, 226, 0.856);
+	background-color: rgba(248, 248, 248, 0.945);
 	max-width: 80%;
 	margin: auto;
 	text-align: center;
@@ -15,4 +15,16 @@ body {
 
 .big-boys {
 	font-weight: 700;
+}
+
+ul {
+	list-style: none;
+}
+
+button {
+	width: 50%;
+	height: 100px;
+	background: rgba(128, 128, 128, 0.747);
+	padding: 10px;
+	color: white;
 }
