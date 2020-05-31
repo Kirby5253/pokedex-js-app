@@ -2,6 +2,7 @@
 var pokemonRepository = (function() {
 	// Create initial empty array for Pokedex app
 	var pokemonArray = [];
+	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 	// Create function to add new pokemon
 	function add(pokemon) {
@@ -48,11 +49,31 @@ var pokemonRepository = (function() {
 		console.log(pokemon);
 	}
 
+	function loadList() {
+		return fetch(apiUrl)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(json) {
+				json.results.forEach(function(item) {
+					var pokemon = {
+						name: item.name,
+						detailsUrl: item.url
+					};
+					add(pokemon);
+				});
+			})
+			.catch(function(e) {
+				console.error(e);
+			});
+	}
+
 	return {
 		add: add,
 		getAll: getAll,
 		addListItem: addListItem,
-		showDetails: showDetails
+		showDetails: showDetails,
+		loadList: loadList
 	};
 })();
 
@@ -63,5 +84,7 @@ function printPokemonArray(variable) {
 	// Selects the list element in index
 	pokemonRepository.addListItem(variable);
 }
+
+pokemonRepository.loadList.forEach(printPokemonArray);
 
 pokemonRepository.getAll().forEach(printPokemonArray);
