@@ -2,14 +2,13 @@
 var pokemonRepository = (function() {
 	// Create initial empty array for Pokedex app
 	var pokemonArray = [];
+
+	// Creates a variable to access pokemon API
 	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 	// Create function to add new pokemon
 	function add(pokemon) {
-		if (typeof pokemon === 'object') {
-			//Allowed only objects to be added
-			return pokemonArray.push(pokemon);
-		}
+		return pokemonArray.push(pokemon);
 	}
 
 	// Create function to list current pokemon
@@ -27,7 +26,7 @@ var pokemonRepository = (function() {
 		var button = document.createElement('button');
 
 		// Adds pokemon names to buttons
-		button.innerText = pokemon.pokemonName;
+		button.innerText = pokemon.name;
 
 		//Add class to the button element
 		button.classList.add('pokemonSelectorButton');
@@ -44,11 +43,7 @@ var pokemonRepository = (function() {
 		});
 	}
 
-	// Add functionality to button click
-	function showDetails(pokemon) {
-		console.log(pokemon);
-	}
-
+	// Function to load pokemon list from API
 	function loadList() {
 		return fetch(apiUrl)
 			.then(function(response) {
@@ -68,12 +63,37 @@ var pokemonRepository = (function() {
 			});
 	}
 
+	function loadDetails(item) {
+		var url = item.detailsUrl;
+		return fetch(url)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(details) {
+				// Now we add the details to the item
+				item.imageUrl = details.sprites.front_default;
+				item.height = details.height;
+				item.types = details.types;
+			})
+			.catch(function(e) {
+				console.error(e);
+			});
+	}
+
+	// Add functionality to button click
+	function showDetails(pokemon) {
+		pokemonRepository.loadDetails(pokemon).then(function() {
+			console.log(pokemon);
+		});
+	}
+
 	return {
 		add: add,
 		getAll: getAll,
 		addListItem: addListItem,
 		showDetails: showDetails,
-		loadList: loadList
+		loadList: loadList,
+		loadDetails: loadDetails
 	};
 })();
 
@@ -85,6 +105,9 @@ function printPokemonArray(variable) {
 	pokemonRepository.addListItem(variable);
 }
 
-pokemonRepository.loadList.forEach(printPokemonArray);
-
-pokemonRepository.getAll().forEach(printPokemonArray);
+// Creates list of pokemon with their name on button
+pokemonRepository.loadList().then(function() {
+	pokemonRepository.getAll().forEach(function(pokemon) {
+		pokemonRepository.addListItem(pokemon);
+	});
+});
