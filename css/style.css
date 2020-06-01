@@ -60,7 +60,7 @@ button {
 	display: inline-block;
 	box-sizing: border-box;
 	background: #fff;
-	padding: 15px;
+	padding: 20px;
 	width: 100%;
 	max-width: 700px;
 	text-align: left;
@@ -70,8 +70,10 @@ button {
 	float: right;
 	-webkit-appearance: none;
 	border: 0;
+	width: 10%;
+	height: 10%;
 	background: none;
-	color: #777;
+	color: red;
 	text-decoration: underline;
 }
 
@@ -81,4 +83,8 @@ button {
 
 .modal p {
 	margin-bottom: 0;
+}
+
+.pokemon-name {
+	text-transform: capitalize;
 }
