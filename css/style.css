@@ -22,7 +22,7 @@ ul {
 }
 
 button {
-	width: 50%;
+	width: 75%;
 	height: 100px;
 	background: rgba(128, 128, 128, 0.747);
 	padding: 10px;
@@ -75,10 +75,12 @@ button {
 	background: none;
 	color: red;
 	text-decoration: underline;
+	margin-right: 10px;
 }
 
 .modal h1 {
 	margin-top: 0;
+	text-align: center;
 }
 
 .modal p {
