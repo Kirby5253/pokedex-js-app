@@ -6,6 +6,8 @@ var pokemonRepository = (function() {
 	// Creates a variable to access pokemon API
 	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+	var modalContainer = document.querySelector('#modal-container');
+
 	// Create function to add new pokemon
 	function add(pokemon) {
 		return pokemonArray.push(pokemon);
@@ -81,7 +83,7 @@ var pokemonRepository = (function() {
 	}
 
 	// Add functionality to button click
-	function showDetails(pokemon) {
+	function showModal(title, url) {
 		pokemonRepository.loadDetails(pokemon).then(function() {
 			console.log(pokemon);
 		});
@@ -91,7 +93,7 @@ var pokemonRepository = (function() {
 		add: add,
 		getAll: getAll,
 		addListItem: addListItem,
-		showDetails: showDetails,
+		showModal: showModal,
 		loadList: loadList,
 		loadDetails: loadDetails
 	};
