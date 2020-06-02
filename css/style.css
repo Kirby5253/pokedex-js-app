@@ -7,7 +7,7 @@ body {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.6;
-	background-color: rgba(248, 248, 248, 0.945);
+	background-color: red;
 	max-width: 80%;
 	margin: auto;
 	text-align: center;
@@ -24,9 +24,9 @@ ul {
 button {
 	width: 75%;
 	height: 100px;
-	background: rgba(128, 128, 128, 0.747);
+	background: #dedede;
 	padding: 10px;
-	color: white;
+	color: black;
 	margin-top: 0.5%;
 }
 
@@ -73,7 +73,7 @@ button {
 	width: 10%;
 	height: 10%;
 	background: none;
-	color: red;
+	color: #dc0a2d;
 	text-decoration: underline;
 	margin-right: 10px;
 }
@@ -89,4 +89,9 @@ button {
 
 .pokemon-name {
 	text-transform: capitalize;
+}
+
+img {
+	width: 30%;
+	float: right;
 }

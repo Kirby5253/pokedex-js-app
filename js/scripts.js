@@ -93,12 +93,14 @@ var pokemonRepository = (function() {
 
 		var modalPicture = document.createElement('img');
 		modalPicture.src = pokemon.imageUrl;
+		modalPicture.classList.add = 'pokemon-picture';
 
 		var modalHeight = document.createElement('p');
-		modalHeight.innerText = 'Height: ' + pokemon.height;
+		var height = pokemon.height;
+		modalHeight.innerText = 'Height: ' + height / 10 + ' meters';
 
 		var modalWeight = document.createElement('p');
-		modalWeight.innerText = 'Weight: ' + pokemon.weight;
+		modalWeight.innerText = 'Weight: ' + (0.22 * pokemon.weight).toFixed(2) + ' pounds';
 
 		// Closes modal with close button
 		var closeButtonElement = document.createElement('button');
