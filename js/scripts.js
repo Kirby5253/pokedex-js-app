@@ -39,7 +39,7 @@ var pokemonRepository = (function() {
 
 		// Adds event to show details in console of each button
 		button.addEventListener('click', function(event) {
-			showModal(pokemon);
+			showDetails(pokemon);
 		});
 	}
 
@@ -67,7 +67,7 @@ var pokemonRepository = (function() {
 		var url = pokemon.detailsUrl;
 		return fetch(url)
 			.then(function(response) {
-				return response.json();
+				return response.json(); //This returns a promise
 			})
 			.then(function(details) {
 				// Now we add the details to the item
@@ -156,7 +156,7 @@ pokemonRepository.loadList().then(function() {
 	});
 });
 
-function showModal(pokemon) {
+function showDetails(pokemon) {
 	pokemonRepository.loadDetails(pokemon).then(function() {
 		pokemonRepository.showModal(pokemon);
 	});
